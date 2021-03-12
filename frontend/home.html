@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Twitch OAuth</title>
+</head>
+<body>
+  <h1>Home</h1>
+  
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <script>
+    const urlParams = new URLSearchParams(window.location.search);
+    const code = urlParams.get('code');
+    if (code) {
+      axios({
+        method: 'post',
+        url: 'http://localhost:3000/oauth/twitch',
+        data: {
+          code
+        }
+      });
+    }
+  </script>
+</body>
+</html>
